@@ -12,7 +12,7 @@ Create Table countries(
 );
 
 Create table continent_has(
-	continent_code Varchar(5),
+	continent_code Varchar(5) NOT NULL,
 	iso_code Varchar(5),
     Primary key (iso_code),
     Foreign key (continent_code) references continent(continent_code) on delete cascade,
