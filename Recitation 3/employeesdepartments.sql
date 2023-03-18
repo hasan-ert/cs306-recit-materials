@@ -16,9 +16,9 @@ CREATE TABLE Works_in(
   since  DATE,
   PRIMARY KEY (ssn, did),
   FOREIGN KEY (ssn) 
-        REFERENCES employees(ssn),
+        REFERENCES employees(ssn) ON DELETE CASCADE,
   FOREIGN KEY (did) 
-        REFERENCES departments(did));
+        REFERENCES departments(did) ON DELETE CASCADE);
         
 CREATE TABLE  Dept_Mgr(
    did  INTEGER,
@@ -27,7 +27,7 @@ CREATE TABLE  Dept_Mgr(
    ssn  CHAR(11) not null,
    since  DATE,
    PRIMARY KEY  (did),
-   FOREIGN KEY (ssn) REFERENCES Employees(ssn));
+   FOREIGN KEY (ssn) REFERENCES Employees(ssn) ON UPDATE CASCADE);
 
 CREATE TABLE  Dep_Policy (
    pname  CHAR(20),
@@ -48,9 +48,11 @@ CREATE TABLE Hourly_Emps
                   (ssn CHAR(11),
                   hourly_wages integer,
                   hours_worked integer,
+				  primary key (ssn),
                   FOREIGN KEY  (ssn) REFERENCES Employees(ssn));
                   
 CREATE TABLE Contract_Emps 
                   (ssn CHAR(11),
                   contract_id integer,
+				  primary key (ssn),
                   FOREIGN KEY  (ssn) REFERENCES Employees(ssn));
