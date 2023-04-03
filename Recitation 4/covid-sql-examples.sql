@@ -7,15 +7,16 @@ Insert Into continent Values ('SA','South America');
 Insert Into continent Values ('OC','Oceania');
 Insert Into continent Values ('AS','Asia');
 
+INSERT into countries VALUES ('CHN','China',1500000);
 
 -- Insert data for continent_has relationship
 -- Make sure to preserve Key Contraints, they must exist in referenced tables
 -- Otherwise it will throw an error
 
 -- Valid Examples
-Insert Into continent_has Values ('AS','CHN');
 Insert Into continent_has Values ('EU','GBR');
 Insert Into continent_has Values ('EU','TUR');
+Insert into continent_has Values ('AF','ZWE');
 
 -- Invalid Examples
 -- Since HAS does not exist in continents , it will throw an error
@@ -25,18 +26,19 @@ Insert Into continent_has Values ('EU','PPP');
 
 -- Since each continent_has relationship is one to many, each continent can be used twice, 
 -- but any country cannot be used more than once
-Insert Into continet_has Values ('AF','CHN');
+Insert Into continent_has Values ('AF','ZWE');
 
 
 --
 
--- Insert data for Dept_Manages relationship
+-- Insert data for cases relationship
 -- Make sure to preserve Key Constraints and Participation Constraints
 -- Otherwise it will throw an error
 
 -- Valid Examples
 Insert Into cases (iso_code,date_info,new_cases,total_cases) Values ('CHN','2021-03-13',300,10000);
-Insert Into cases   (iso_code,date_info,new_cases,total_cases) Values ('GBR','2022-06-21',100,3200);
+Insert Into cases (iso_code,date_info,new_cases,total_cases) Values ('GBR','2022-06-21',100,3200);
+Insert Into cases (iso_code,date_info,new_cases,total_cases) Values ('GBR','2022-08-03',100,3200);
 
 
 -- Invalid Examples
@@ -53,7 +55,6 @@ Insert Into cases   (iso_code,date_info,new_cases,total_cases) Values ('AAAA','2
 (Select * 
 from cases 
 where iso_code = 'GBR' 
-and  date_info = '2022-06-21' 
 limit 10000
 );
 
@@ -71,5 +72,6 @@ Select C.date_info, C.new_cases, C.total_cases, CT.name from cases C, countries 
 -- Due to referential integrity constraints, 
 -- if we delete an employee, repective dependent table record will be deleted
 Delete from countries where iso_code = 'CHN';
-Select * from continent_has;
 
+Select * from continent_has;
+Select * from cases WHERE cases.iso_code = 'CHN';

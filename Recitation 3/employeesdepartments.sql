@@ -24,7 +24,7 @@ CREATE TABLE  Dept_Mgr(
    did  INTEGER,
    dname  CHAR(20),
    budget  REAL,
-   ssn  CHAR(11) not null,
+   ssn  CHAR(11),
    since  DATE,
    PRIMARY KEY  (did),
    FOREIGN KEY (ssn) REFERENCES Employees(ssn) ON UPDATE CASCADE);
