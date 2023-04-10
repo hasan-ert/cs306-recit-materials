@@ -115,3 +115,4 @@ INSERT INTO DEPENDENT VALUES (1234,"Emily","Female","1995-3-3","Wife"),  (1234,"
 (5743,"Scarlett","Female","1953-3-3","Wife"),  (5743,"John","Male","1978-3-3","Child"), (5743,"Emily","Female","2005-3-3","Grandchild");
 
 
+DELETE FROM DEPENDENT
