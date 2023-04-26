@@ -45,7 +45,7 @@ def filter_generation(query, condition=None, filters=None):
 
 def set_query_generation(query, values=None):
     """'Generates value setter based on a dictionary which has the column name as keys and corresponding values"""
-    print("yesss")
+
     print(values)
     if values != None:
         query += " SET "

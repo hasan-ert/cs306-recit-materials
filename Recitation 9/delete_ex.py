@@ -14,3 +14,4 @@ print("Query executed successfully")
 filters = [{"field": "iso_code", "value": "TUR", "operator": "="}]
 
 delete_operation(cursor=cursor, table_name="countries", filters=filters)
+cnx.commit()

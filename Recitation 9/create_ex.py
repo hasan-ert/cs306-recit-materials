@@ -8,15 +8,6 @@ cursor = cnx.cursor()
 
 # You can directly write your querries and execute them
 
-query = """Create table continents_countries(
-    iso_code Varchar(5),
-	continent_code Varchar(10),
-    Primary key (iso_code, continent_code),
-    Foreign key (continent_code) references continents(continent_code) on delete cascade,
-    Foreign key (iso_code) references countries(iso_code) On delete Cascade
-) """
-
-cursor.execute(query)
 
 # Create a table dictionary to store queries
 TABLES = {}
@@ -39,3 +30,13 @@ TABLES[
 
 # Then feed this dictonary into the create_operation function to easily create your tables
 create_operation(cursor, TABLES)
+
+query = """Create table continents_countries(
+    iso_code Varchar(5),
+	continent_code Varchar(10),
+    Primary key (iso_code, continent_code),
+    Foreign key (continent_code) references continents(continent_code) on delete cascade,
+    Foreign key (iso_code) references countries(iso_code) On delete Cascade
+) """
+
+cursor.execute(query)

@@ -5,7 +5,7 @@ cnx = connectionCreator()
 cursor = cnx.cursor()
 
 # Like in the other operations, first directly execute SELECT query
-query = """SELECT * FROM countries"""
+query = """SELECT * FROM countries where iso_code = 'TUR'"""
 cursor.execute(query)
 data = cursor.fetchall()
 
