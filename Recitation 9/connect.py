@@ -4,9 +4,7 @@ from mysql.connector import errorcode
 
 def connectionCreator():
     try:
-        cnx = mysql.connector.connect(
-            user="root", password="2539", database="python_trial"
-        )
+        cnx = mysql.connector.connect(user="root", password="2539", database="recit9_2")
         print("Connection established with the database")
         return cnx
     except mysql.connector.Error as err:

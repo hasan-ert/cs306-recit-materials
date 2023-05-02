@@ -18,4 +18,5 @@ values = {"country_name": "Turkie", "population": 40000000}
 filters = [{"field": "iso_code", "operator": "=", "value": "TUR"}]
 
 update_operation(cursor=cursor, table_name="countries", values=values, filters=filters)
+
 cnx.commit()

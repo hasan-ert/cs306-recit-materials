@@ -124,6 +124,7 @@ def delete_operation(cursor, table_name, condition=None, filters=None):
     """Deletes instances with given filter array that contains dictionaries that has filter info"""
     query = """DELETE FROM {} """.format(table_name)
     query = filter_generation(query, condition, filters)
+    print(query)
     cursor.execute(query)
     print("Deletion successfull")
     return True

@@ -39,4 +39,5 @@ query = """Create table continents_countries(
     Foreign key (iso_code) references countries(iso_code) On delete Cascade
 ) """
 
+
 cursor.execute(query)

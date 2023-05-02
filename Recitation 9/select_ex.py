@@ -28,6 +28,7 @@ data = select_operation(
     cursor, table_name="countries", condition="WHERE iso_code = 'TUR'"
 )
 
+
 for instance in data:
     print(instance)
 
